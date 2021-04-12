@@ -1,0 +1,9 @@
+{
+  "name": "awesome-marketplace",
+  "version": "0.0.0",
+  "description": "Monorepo who contains the backend and the frontend with Node.js react and express api",
+  "dependencies": {
+    "client": "file:./client",
+    "server": "file:./server"
+  }
+}

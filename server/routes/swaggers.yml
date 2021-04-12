@@ -1,0 +1,13 @@
+paths: 
+    /pingui:
+    get:
+      description: Endpoint for Healthcheck, but more fancy...
+      responses:
+        200:
+          description: Returns a pongo fancy response.
+  /ping:
+    get:
+      description: Endpoint for Healthcheck
+      responses:
+        200:
+          description: Returns pong.

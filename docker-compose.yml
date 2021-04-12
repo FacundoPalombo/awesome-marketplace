@@ -1,0 +1,41 @@
+version: "2.4"
+
+services:
+  db:
+    image: postgres:13.2-alpine
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - db-data:/var/lib/postgresql/data
+  server:
+    build:
+      context: ./server
+      target: dev
+    ports:
+      - "5001:8080"
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./server:/app
+      - ./server/node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+      - HOST_DNS=0.0.0.0:5001
+    depends_on:
+      - db
+  client:
+    build:
+      context: ./client
+      target: dev
+    ports:
+      - "5002:8080"
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./client:/app
+      - ./client/node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+
+volumes:
+  db-data:

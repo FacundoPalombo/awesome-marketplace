@@ -1,0 +1,26 @@
+{
+  "definition": {
+    "openapi": "3.0.0",
+    "info": {
+      "title": "awesome-marketplace-server",
+      "version": "0.1.0",
+      "description": "Esta api alimenta de datos a la aplicación web del marketplace",
+      "license": {
+        "name": "MIT",
+        "url": "https://spdx.org/licenses/MIT.html"
+      },
+      "contact": {
+        "name": "Facundo Palombo",
+        "url": "https://github.com/FacundoPalombo",
+        "email": "facundo.palombo@gmail.com"
+      }
+    },
+    "servers": [
+      {
+        "url": "http://localhost:5001/",
+        "description": "Local server"
+      }
+    ]
+  },
+  "apis": ["./routes/*.js"]
+}
