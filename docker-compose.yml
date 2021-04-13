@@ -18,6 +18,7 @@ services:
     volumes:
       - ./server:/app
       - ./server/node_modules:/app/node_modules
+      - ./server/logs:/app/logs
     environment:
       - NODE_ENV=development
       - HOST_DNS=0.0.0.0:5001

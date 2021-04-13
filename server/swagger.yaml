@@ -1,0 +1,64 @@
+---
+apis:
+  - "./routes/*.js"
+definition:
+  openapi: 3.0.0
+  info:
+    title: awesome-marketplace-server
+    version: 0.1.0
+    description: Esta api alimenta de datos a la aplicación web del marketplace
+    license:
+      name: MIT
+      url: https://spdx.org/licenses/MIT.html
+    contact:
+      name: Facundo Palombo
+      url: https://github.com/FacundoPalombo
+      email: facundo.palombo@gmail.com
+  servers:
+    - url: http://localhost:5001/
+      description: Local server
+  components:
+    schemas:
+      Price:
+        type: object
+        properties:
+          currency:
+            type: string
+          amount:
+            type: number
+          decimals:
+            type: number
+      Author:
+        type: object
+        properties:
+          name:
+            type: string
+          lastname:
+            type: string
+        example:
+          name: Jhon
+          lastname: Doe
+      Item:
+        type: object
+        description: Item from a list of products
+        properties:
+          author:
+            "$ref": "#/components/schemas/Author"
+          item:
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              price:
+                "$ref": "#/components/schemas/Price"
+              picture:
+                type: string
+              condition:
+                type: string
+              free_shipping:
+                type: boolean
+              sold_quantity:
+                type: number
+              description:
+                type: string
