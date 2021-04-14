@@ -13,7 +13,9 @@ paths:
           description: Returns pong.
   /api/items:
       method:
-        tags: [items, shopping]
+        tags:
+          - items
+          - shopping
         summary: "GET"
         produces: [application/json]
         parameters:
@@ -36,13 +38,16 @@ paths:
                 categories:
                   description: "Categories trees related from those items"
                   type: array
-                    items:
-                      type: string
+                  items:
+                    type: string
                   example: true
                 items:
                   description: "Items retrieved"
-                  type: boolean
-                  example: false
+                  type: array
+                  items:
+                    type: object
+                    schema:
+                      '$ref': #/components/schemas/Item
           502:
             description: "Service goes trough 502 error when the resource was not founded from the external api."
             schema:
@@ -52,7 +57,7 @@ paths:
                   description: "Error description"
                   type: string
                   example: "Bad gateway"
-                code: 
+                code:
                   description: "HTTP Error code"
                   type: number
                   example: 502

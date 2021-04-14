@@ -19,6 +19,25 @@ definition:
       description: Local server
   components:
     schemas:
+      Items:
+        type: object
+        description: "A list of items with categories data"
+        properties:
+          author:
+            schema:
+              "$ref": "#/components/schemas/Author"
+          categories:
+            description: "Categories trees related from those items"
+            type: array
+            items:
+              type: string
+          items:
+            description: "Items retrieved"
+            type: array
+            items:
+              type: object
+              schema:
+                "$ref": "#/components/schemas/Item"
       Price:
         type: object
         properties:
