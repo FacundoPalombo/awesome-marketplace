@@ -13,6 +13,7 @@ const YAML = require("yamljs");
 const swaggerDocument = YAML.load("./swagger.yaml");
 
 const routes = require("./routes/index");
+const Logger = require("./lib/logger");
 
 const app = express();
 
@@ -21,8 +22,7 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(timeout("5s"));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(timeout("6s"));
 
 // error handler
 app.use(function (err, req, res, next) {
@@ -43,6 +43,7 @@ app.use(
   swaggerUi.serve,
   swaggerUi.setup(swaggerSpecs, {
     explorer: true,
+    customSiteTitle: "API DOCS",
   })
 );
 

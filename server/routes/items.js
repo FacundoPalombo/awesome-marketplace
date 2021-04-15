@@ -2,6 +2,10 @@ const router = require("express").Router();
 const Logger = require("../lib/logger");
 const axios = require("axios");
 const createHttpError = require("http-errors");
+const {
+  API_MELI_SEARCH,
+  API_MELI_FIND_ITEMS,
+} = require("../utils/constants/externalApis");
 
 /**
  *
@@ -43,25 +47,20 @@ router.get("/items", async (req, res, next) => {
   const query = req.query.q;
   try {
     Logger.info(`Fetching meli api with query ${query}`);
-    const response = await axios.get(
-      "https://api.mercadolibre.com/sites/MLA/search",
-      { params: { q: query } }
-    );
+    const response = await axios.get(API_MELI_SEARCH, { params: { q: query } });
     Logger.info(`Items received with query ${query}`);
     Logger.info(
       `Result ids received: ${response.data.results.map((result) => result.id)}`
     );
     const { results } = response.data;
-    res
-      .json({
-        author: {
-          name: "Facundo",
-          lastname: "Palombo",
-        },
-        categories: results.map((item) => item.category_id),
-        items: results,
-      })
-      .status(200);
+    res.status(200).json({
+      author: {
+        name: "Facundo",
+        lastname: "Palombo",
+      },
+      categories: results.map((item) => item.category_id),
+      items: results,
+    });
   } catch (error) {
     Logger.error(
       `Service got an error. Items with query "${query}" could not be finded.`
@@ -69,8 +68,8 @@ router.get("/items", async (req, res, next) => {
     Logger.error(error);
     const httpError = createHttpError(502);
     res
-      .json({ error: httpError.message, code: httpError.statusCode })
-      .status(502);
+      .status(502)
+      .json({ error: httpError.message, code: httpError.statusCode });
   }
 });
 
@@ -78,31 +77,33 @@ router.get("/item/:id", async (req, res, next) => {
   const itemId = req.params.id;
   try {
     Logger.info(`Fetching item with id: ${itemId}`);
-    const itemResponse = await axios.get(
-      `https://api.mercadolibre.com/items/${itemId}`
-    );
+    const itemResponse = await axios.get(`${API_MELI_FIND_ITEMS}${itemId}`);
     Logger.info(`Fetching item description with id: ${itemId}`);
     const itemDescriptionResponse = await axios.get(
-      `https://api.mercadolibre.com/items/${itemId}/description`
+      `${API_MELI_FIND_ITEMS}${itemId}/description`
     );
-    Logger.info(
-      `Item with id ${itemId} retrieved, title: ${itemResponse.data.title}`
-    );
-    Logger.info(
-      `Item description with id ${itemId} retrieved: ${itemDescriptionResponse.data.plain_text}`
-    );
-    const {
-      id,
-      title,
-      price,
-      picture,
-      condition,
-      free_shipping,
-      sold_quantity,
-    } = itemResponse.data;
-    const { plain_text } = itemDescriptionResponse.data;
-    res
-      .json({
+
+    if (itemResponse.status !== 200 || itemDescriptionResponse.status !== 200) {
+      throw new Error("502 - One of the resources could not be loaded");
+    } else {
+      Logger.info(
+        `Item with id ${itemId} retrieved, title: ${itemResponse.data.title}`
+      );
+      Logger.info(
+        `Item description with id ${itemId} retrieved: ${itemDescriptionResponse.data.plain_text}`
+      );
+      const {
+        id,
+        title,
+        price,
+        picture,
+        condition,
+        free_shipping,
+        sold_quantity,
+      } = itemResponse.data;
+      const { plain_text } = itemDescriptionResponse.data;
+
+      res.status(200).json({
         author: { name: "Facundo", lastname: "Palombo" },
         item: {
           id,
@@ -114,17 +115,18 @@ router.get("/item/:id", async (req, res, next) => {
           sold_quantity,
           description: plain_text,
         },
-      })
-      .status(200);
+      });
+    }
   } catch (error) {
     Logger.error(
       `Service got an error. Item with itemId "${itemId}" could not be finded.`
     );
     Logger.error(error);
+
     const httpError = createHttpError(502);
     res
       .json({ error: httpError.message, code: httpError.statusCode })
-      .status(502);
+      .status(httpError.statusCode);
   }
 });
 

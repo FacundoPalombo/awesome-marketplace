@@ -47,7 +47,7 @@ paths:
                   items:
                     type: object
                     schema:
-                      '$ref': #/components/schemas/Item
+                      '$ref': "#/components/schemas/Item"
           502:
             description: "Service goes trough 502 error when the resource was not founded from the external api."
             schema:

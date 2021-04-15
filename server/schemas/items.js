@@ -1,9 +1,15 @@
+const author = { author: { name: "string", lastname: "string" } };
+
+const price = {
+  price: { currency: "string", amount: "number", decimals: "number" },
+};
+
 const item = {
-  author: { name: "string", lastname: "string" },
+  author: author,
   item: {
     id: "string",
     title: "string",
-    price: { currency: "string", amount: "number", decimals: "number" },
+    price: price,
     picture: "string",
     condition: "string",
     free_shipping: "boolean",
@@ -12,23 +18,14 @@ const item = {
   },
 };
 
-// TODO: Question. items schema, in items array, can use the item schema like:
-/*
 const items = {
-  author: { name: "string", lastname: "string" },
-  categories: ["string"],
-  items: [item[]]
-}
-*/
-
-const items = {
-  author: { name: "string", lastname: "string" },
+  author: author,
   categories: ["string"],
   items: [
     {
       id: "string",
       title: "string",
-      price: { currency: "string", amount: "number", decimals: "number" },
+      price: price,
       picture: "string",
       condition: "string",
       free_shipping: "boolean",
@@ -37,3 +34,6 @@ const items = {
     },
   ],
 };
+
+const Schemas = Object.freeze({ author, price, item, items });
+module.exports = Schemas;

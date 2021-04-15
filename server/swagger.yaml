@@ -19,25 +19,6 @@ definition:
       description: Local server
   components:
     schemas:
-      Items:
-        type: object
-        description: "A list of items with categories data"
-        properties:
-          author:
-            schema:
-              "$ref": "#/components/schemas/Author"
-          categories:
-            description: "Categories trees related from those items"
-            type: array
-            items:
-              type: string
-          items:
-            description: "Items retrieved"
-            type: array
-            items:
-              type: object
-              schema:
-                "$ref": "#/components/schemas/Item"
       Price:
         type: object
         properties:
@@ -61,8 +42,6 @@ definition:
         type: object
         description: Item from a list of products
         properties:
-          author:
-            "$ref": "#/components/schemas/Author"
           item:
             properties:
               id:
@@ -70,7 +49,7 @@ definition:
               title:
                 type: string
               price:
-                "$ref": "#/components/schemas/Price"
+                $ref: "#/components/schemas/Price"
               picture:
                 type: string
               condition:
@@ -81,3 +60,31 @@ definition:
                 type: number
               description:
                 type: string
+      Items:
+        type: object
+        description: Items listed with categories
+        properties:
+          categories:
+            type: array
+            items:
+              type: string
+          items:
+            type: array
+            items:
+              $ref: "#/components/schemas/Item"
+      ItemsResponse:
+        type: object
+        description: Items listed with categories, response from service
+        $ref: "#/components/schemas/Items"
+        additionalProperties: true
+        properties:
+          author:
+            $ref: "#/components/schemas/Author"
+      ItemResponse:
+        type: object
+        description: Item response from service
+        $ref: "#/components/schemas/Item"
+        additionalProperties: true
+        properties:
+          author:
+            $ref: "#/components/schemas/Author"
