@@ -6,10 +6,12 @@ const { HotModuleReplacementPlugin } = require("webpack");
 const isDevelopment = process.env.NODE_ENV === "development";
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 const plugins = [
   new HtmlWebpackPlugin({
-    template: path.resolve(__dirname, "/public/index.html"),
+    template: path.resolve(__dirname, "./public/index.html"),
   }),
   new MiniCssExtractPlugin({
     filename: isDevelopment ? "[name].css" : "[name].[hash].css",
@@ -19,30 +21,43 @@ const plugins = [
 ];
 
 isDevelopment && plugins.push(new HotModuleReplacementPlugin());
+isDevelopment &&
+  plugins.push(
+    new BundleAnalyzerPlugin({
+      analyzerHost: process.env.HOST || "0.0.0.0",
+      analyzerPort: 5021,
+    })
+  );
 
 module.exports = {
+  name: "awesome-marketplace-client",
   mode: process.env.NODE_ENV || "development",
-  entry: "./src/index.js",
+  entry: path.resolve(__dirname, "./src/index.js"),
   output: {
     path: path.resolve(__dirname, "dist"),
+    filename: "[id]_[name].bundle.js",
+    uniqueName: "awesome-marketplace-client",
   },
   devServer: {
     open: true,
     host: process.env.HOST || "0.0.0.0",
     port: process.env.PORT || 3000,
     compress: true,
-    contentBase: path.resolve(__dirname, "public"),
+    hot: true,
   },
-
+  devtool: "source-map",
   plugins,
   module: {
     rules: [
       {
-        test: /\\.(js|jsx)$/,
+        test: /\.js|\.jsx$/,
         loader: "babel-loader",
+        options: {
+          exclude: [/(node_modules|bower_components)/],
+        },
       },
       {
-        test: /\.module.(sa|sc|c)ss$/,
+        test: /\.[module\.]?(sa|sc|c)ss$/,
         use: [
           isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
           "css-loader",
@@ -56,9 +71,14 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ["js", "jsx", "scss"],
+    modules: ["node_modules", path.resolve(__dirname, "src")],
+    alias: {
+      root: path.resolve(__dirname, "src"),
+    },
+    extensions: [".js", ".jsx", ".scss"],
   },
   optimization: {
     minimizer: [new CssMinimizerPlugin()],
+    usedExports: isDevelopment,
   },
 };
