@@ -29,6 +29,22 @@ isDevelopment &&
     })
   );
 
+const devServer = {
+  open: true,
+  host: process.env.HOST || "0.0.0.0",
+  port: process.env.PORT || 3000,
+  compress: true,
+  hot: true,
+};
+
+process.env.DOCKER_ENVIRONMENT &&
+  Object.assign(devServer, {
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: 1000,
+    },
+  });
+
 module.exports = {
   name: "awesome-marketplace-client",
   mode: process.env.NODE_ENV || "development",
@@ -38,13 +54,7 @@ module.exports = {
     filename: "[id]_[name].bundle.js",
     uniqueName: "awesome-marketplace-client",
   },
-  devServer: {
-    open: true,
-    host: process.env.HOST || "0.0.0.0",
-    port: process.env.PORT || 3000,
-    compress: true,
-    hot: true,
-  },
+  devServer,
   devtool: "source-map",
   plugins,
   module: {

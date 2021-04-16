@@ -30,6 +30,10 @@ services:
       target: dev
     ports:
       - "5002:8080"
+    environment:
+      - NODE_ENV=development
+      - HOST="0.0.0.0"
+      - DOCKER_ENVIRONMENT=true
     stdin_open: true
     tty: true
     volumes:

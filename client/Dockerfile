@@ -25,20 +25,22 @@ FROM base as dev
 ENV NODE_ENV=development
 
 RUN apk update -qq && \
-    apk add -q curl 
+    apk add -q curl inotify-tools
 
 RUN npm config list
 
 RUN npm install --only=development \
     && npm cache clean --force
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
 
 FROM dev as test
 
 COPY . .
 
 RUN npm audit
+
+RUN npm coverage
 
 # Run some tests like sonar or code smells scanner
 
