@@ -1,6 +1,5 @@
 module.exports = {
-  testEnvironment: "jsdom",
-  setupFilesAfterEnv: ["./jest.setup.js"],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   errorOnDeprecated: false, // Make calling deprecated APIs throw helpful error messages. Useful for easing the upgrade process.
   coverageThreshold: {
     global: {
@@ -10,12 +9,17 @@ module.exports = {
       statements: -10,
     },
   },
+  moduleNameMapper: {
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+      "<rootDir>/__mocks__/fileMock.js",
+    "\\.(module|sass|scss|css)$": "identity-obj-proxy",
+  },
   collectCoverageFrom: [
-    "**/*.{js|jsx}",
+    "./src/**/*.js(x)?",
+    "!./src/index.js",
     "!**/node_modules/**",
     "!**/vendor/**",
     "!**/coverage/**",
     "!**jest**",
-    "!**/schemas/**",
   ],
 };

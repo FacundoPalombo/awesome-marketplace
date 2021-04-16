@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GIVEN App WHEN render THEN should match to snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+    id="main"
+  >
+    Hsello uwus
+  </div>
+</DocumentFragment>
+`;

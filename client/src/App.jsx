@@ -5,7 +5,7 @@ import "./GlobalStyles.scss";
 export function App() {
   return (
     <div id="main" className={styles.App}>
-      Hsello uwu
+      Hsello uwus
     </div>
   );
 }
