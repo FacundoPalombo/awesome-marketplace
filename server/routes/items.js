@@ -47,20 +47,30 @@ router.get("/items", async (req, res, next) => {
   const query = req.query.q;
   try {
     Logger.info(`Fetching meli api with query ${query}`);
+
     const response = await axios.get(API_MELI_SEARCH, { params: { q: query } });
+
     Logger.info(`Items received with query ${query}`);
     Logger.info(
       `Result ids received: ${response.data.results.map((result) => result.id)}`
     );
-    const { results } = response.data;
-    res.status(200).json({
-      author: {
-        name: "Facundo",
-        lastname: "Palombo",
-      },
-      categories: results.map((item) => item.category_id),
-      items: results,
-    });
+
+    const { results, filters } = response.data;
+    const categories = filters.filter(({ id }) => id === "category")[0]
+      ?.values[0]?.path_from_root;
+
+    if (!categories) {
+      throw new Error("404 - Those items doesn't have categories to show");
+    } else {
+      res.status(200).json({
+        author: {
+          name: "Facundo",
+          lastname: "Palombo",
+        },
+        categories,
+        items: results.slice(0, 5),
+      });
+    }
   } catch (error) {
     Logger.error(
       `Service got an error. Items with query "${query}" could not be finded.`
@@ -70,6 +80,7 @@ router.get("/items", async (req, res, next) => {
     res
       .status(502)
       .json({ error: httpError.message, code: httpError.statusCode });
+    return next(error);
   }
 });
 

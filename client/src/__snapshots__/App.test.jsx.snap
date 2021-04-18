@@ -2,11 +2,51 @@
 
 exports[`GIVEN App WHEN render THEN should match to snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="App"
+  <main
+    class="main"
     id="main"
   >
-    Hsello uwus
-  </div>
+    <form
+      class="form"
+    >
+      <div
+        class="box"
+      >
+        <a
+          class="link"
+          href="/"
+        >
+          <img
+            alt="browse for items"
+            class="brand"
+            src="file-mock"
+            srcset="file-mock 1x, file-mock 2x"
+          />
+        </a>
+        <input
+          class="input"
+          id="search_input"
+          name="search"
+          placeholder="Nunca dejes de buscar"
+          type="search"
+          value=""
+        />
+        <button
+          class="button"
+          type="submit"
+        >
+          <img
+            alt="browse for items"
+            class="button"
+            src="file-mock"
+            srcset="file-mock 1x, file-mock 2x"
+          />
+        </button>
+      </div>
+    </form>
+    <div>
+      search
+    </div>
+  </main>
 </DocumentFragment>
 `;

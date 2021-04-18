@@ -14,8 +14,8 @@ const plugins = [
     template: path.resolve(__dirname, "./public/index.html"),
   }),
   new MiniCssExtractPlugin({
-    filename: isDevelopment ? "[name].css" : "[name].[hash].css",
-    chunkFilename: isDevelopment ? "[id].css" : "[id].[hash].css",
+    filename: isDevelopment ? "[name].css" : "[name].[contenthash:8].css",
+    chunkFilename: isDevelopment ? "[id].css" : "[id].[contenthash:8].css",
   }),
   new WebpackManifestPlugin(),
 ];
@@ -35,6 +35,14 @@ const devServer = {
   port: process.env.PORT || 3000,
   compress: true,
   hot: true,
+  historyApiFallback: true,
+  proxy: {
+    "/api/": {
+      target: process.env.API_URL || "0.0.0.0:3001",
+      secure: false,
+      changeOrigin: true,
+    },
+  },
 };
 
 process.env.DOCKER_ENVIRONMENT &&
@@ -67,15 +75,56 @@ module.exports = {
         },
       },
       {
-        test: /\.[module\.]?(sa|sc|c)ss$/,
+        test: /\.scss$/,
+        exclude: /\.module\.scss$/,
         use: [
-          isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+              modules: {
+                compileType: "icss",
+              },
+            },
+          },
+          {
+            loader: "sass-loader",
+          },
+        ],
+      },
+      // --------
+      // SCSS MODULES
+      {
+        test: /\.module\.scss$/,
+        use: [
+          {
+            loader: isDevelopment
+              ? "style-loader"
+              : MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+              modules: {
+                compileType: "module",
+              },
+            },
+          },
+          {
+            loader: "sass-loader",
+          },
         ],
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/,
+        test: /\.svg$/,
+        use: ["@svgr/webpack", "url-loader"],
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2|png|jpg|gif)$/,
         type: "asset",
       },
     ],
@@ -84,6 +133,11 @@ module.exports = {
     modules: ["node_modules", path.resolve(__dirname, "src")],
     alias: {
       root: path.resolve(__dirname, "src"),
+      components: path.resolve(__dirname, "src/components"),
+      utils: path.resolve(__dirname, "src/utils"),
+      container: path.resolve(__dirname, "src/container"),
+      services: path.resolve(__dirname, "src/services"),
+      common: path.resolve(__dirname, "src/common"),
     },
     extensions: [".js", ".jsx", ".scss"],
   },

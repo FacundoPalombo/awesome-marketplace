@@ -1,0 +1,76 @@
+/* identity colors */
+$brand: #ffe600;
+
+/* gray variants */
+$gray-1: #eeeeee;
+$gray-2: #999999;
+$gray-3: #666666;
+$gray-4: #333333;
+
+/* color scheme */
+$primary: $brand;
+$cta: #3483fa;
+$bg-primary: $gray-1;
+$bg-secondary: $gray-2;
+$font: $gray-4;
+
+/* units */
+$unit: 8px;
+$half-unit: $unit / 2;
+$unit-2: $unit * 2;
+$unit-3: $unit * 3;
+$unit-4: $unit * 4;
+
+:export {
+  brand: $brand;
+  gray-1: $gray-1;
+  gray-2: $gray-2;
+  gray-3: $gray-3;
+  gray-4: $gray-4;
+  primary: $primary;
+  cta: $cta;
+  bgPrimary: $bg-primary;
+  bgSecondary: $bg-secondary;
+  font: $font;
+  unit: $unit;
+  half-unit: $half-unit;
+  unit-2: $unit-2;
+  unit-3: $unit-3;
+  unit-4: $unit-4;
+}
+
+//mixing
+// Small devices
+@mixin sm {
+  @media (max-width: 360px) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (max-width: 420px) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (max-width: 1280px) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xxl {
+  @media (max-width: 1440px) {
+    @content;
+  }
+}

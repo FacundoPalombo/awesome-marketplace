@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GIVEN NotFound component WHEN rendered THEN should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <img
+      alt="Error404"
+      class="hero"
+      src="https://image.freepik.com/vector-gratis/concepto-error-404-robot-azul_23-2147738004.jpg"
+    />
+    <h1
+      class="title"
+    >
+      ¡Whoops! ¡Aqui no hay nada!
+    </h1>
+    <a
+      data-testid="link-back"
+      href="/"
+    >
+      <span>
+        Volver
+      </span>
+    </a>
+  </div>
+</DocumentFragment>
+`;

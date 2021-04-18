@@ -1,0 +1,19 @@
+@import "utils/variables.scss";
+
+.breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 80%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.chevron {
+  margin-right: 0.5em;
+  overflow: visible;
+}

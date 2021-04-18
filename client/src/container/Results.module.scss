@@ -1,0 +1,23 @@
+@import "utils/variables.scss";
+
+.content {
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 80%;
+  height: 100%;
+  background-color: $bg-primary;
+  @include md {
+    width: 95%;
+  }
+}
+
+.breadcrumbs {
+  display: flex;
+  width: 80%;
+  align-items: flex-start;
+  padding: $unit-2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

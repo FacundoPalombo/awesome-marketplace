@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GIVEN InputSearch Component WHEN searches some text THEN should match to snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="form"
+  >
+    <div
+      class="box"
+    >
+      <a
+        class="link"
+        href="/"
+      >
+        <img
+          alt="browse for items"
+          class="brand"
+          src="file-mock"
+          srcset="file-mock 1x, file-mock 2x"
+        />
+      </a>
+      <input
+        class="input"
+        id="search_input"
+        name="search"
+        placeholder="Nunca dejes de buscar"
+        type="search"
+        value=""
+      />
+      <button
+        class="button"
+        type="submit"
+      >
+        <img
+          alt="browse for items"
+          class="button"
+          src="file-mock"
+          srcset="file-mock 1x, file-mock 2x"
+        />
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;

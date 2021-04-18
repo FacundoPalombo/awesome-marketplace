@@ -1,0 +1,22 @@
+@import "utils/variables.scss";
+
+.container {
+  background-color: $bg-primary;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.hero {
+  margin-top: 100px;
+  max-width: 300px;
+  box-sizing: border-box;
+}
+.title {
+  color: fade-out($font, 0.2);
+  font-size: $unit-3;
+  margin-bottom: $unit-4 * 2;
+}

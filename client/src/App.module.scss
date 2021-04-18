@@ -1,3 +1,10 @@
-.App {
-  background-color: blue;
+@import "utils/variables.scss";
+
+.main {
+  background-color: $bg-secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
 }
