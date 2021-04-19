@@ -2,21 +2,27 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export function useItems(query) {
-  const [items, setItems] = useState({});
+  const [items, setItems] = useState({ items: [], categories: [] });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   useEffect(() => {
     async function getItems(query) {
+      setItems({ items: [], categories: [] });
+      setError(null);
       setLoading(true);
-      const response = await axios.get(
-        `http://0.0.0.0:3001/api/items?q=${query}`
-      );
-      setLoading(false);
-      setItems(response.data);
-      if (response.status >= 400) {
-        setLoading(false);
-        setError({ code: response.status, message: response.statusText });
-      }
+      await axios
+        .get(`http://0.0.0.0:3001/api/items?q=${query}`)
+        .then((response) => {
+          setLoading(false);
+          setItems(response.data);
+        })
+        .catch((err) => {
+          setLoading(false);
+          setError({
+            code: err.response.status,
+            message: err.response.statusText,
+          });
+        });
     }
     getItems(query);
   }, [query]);

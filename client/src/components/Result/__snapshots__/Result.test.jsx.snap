@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GIVEN Result Component WHEN results was NOT retrieved THEN should match to snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class="link"
+    href="/items/:undefined"
+  >
+    <div
+      class="result"
+    >
+      <div
+        class="imageContainer"
+      >
+        <img
+          class="image"
+        />
+      </div>
+      <div
+        class="description"
+      >
+        <h3
+          class="price"
+        >
+          $  
+        </h3>
+        <h4
+          class="title"
+        />
+      </div>
+      <h4
+        class="location"
+      />
+    </div>
+  </a>
+</DocumentFragment>
+`;
+
+exports[`GIVEN Result Component WHEN results was retrieved THEN should match to snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class="link"
+    href="/items/:MLA804207795"
+  >
+    <div
+      class="result"
+    >
+      <div
+        class="imageContainer"
+      >
+        <img
+          alt="iPod Touch 32 Gb"
+          class="image"
+          src="http://http2.mlstatic.com/D_684489-MLA32011256128_082019-O.jpg"
+        />
+      </div>
+      <div
+        class="description"
+      >
+        <h3
+          class="price"
+        >
+          $ 39999 
+          <img
+            class="freeShipping"
+            srcset="file-mock 1x, file-mock 2x"
+          />
+        </h3>
+        <h4
+          class="title"
+        >
+          iPod Touch 32 Gb
+        </h4>
+      </div>
+      <h4
+        class="location"
+      >
+        Rosario
+      </h4>
+    </div>
+  </a>
+</DocumentFragment>
+`;

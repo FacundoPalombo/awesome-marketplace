@@ -1,0 +1,313 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GIVEN Results Component WHEN results was retrieved THEN should match to snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="container"
+  >
+    <div
+      class="breadcrumbsContainer"
+    >
+      <nav
+        class="breadcrumbs"
+      >
+        <nav
+          class="breadcrumbs"
+        >
+          <span
+            class="container"
+          >
+            <a
+              class="breadcrumb"
+            >
+              Celulares y Teléfonos
+            </a>
+             &gt; 
+          </span>
+          <span
+            class="container"
+          >
+            <a
+              class="breadcrumb"
+            >
+              Celulares y Smartphones
+            </a>
+          </span>
+        </nav>
+      </nav>
+    </div>
+    <div
+      class="contentContainer"
+    >
+      <main
+        class="content"
+        id="results"
+      >
+        <div
+          class="resultContainer"
+        >
+          <a
+            class="link"
+            href="/items/:MLA899573282"
+          >
+            <div
+              class="result"
+            >
+              <div
+                class="imageContainer"
+              >
+                <img
+                  alt="Xiaomi Redmi 9 (global) Dual Sim 64 Gb Carbon Grey 4 Gb Ram"
+                  class="image"
+                  src="http://http2.mlstatic.com/D_818899-MLA43159149904_082020-I.jpg"
+                />
+              </div>
+              <div
+                class="description"
+              >
+                <h3
+                  class="price"
+                >
+                  $ 34600 
+                  <img
+                    class="freeShipping"
+                    srcset="file-mock 1x, file-mock 2x"
+                  />
+                </h3>
+                <h4
+                  class="title"
+                >
+                  Xiaomi Redmi 9 (global) Dual Sim 64 Gb Carbon Grey 4 Gb Ram
+                </h4>
+              </div>
+              <h4
+                class="location"
+              >
+                Córdoba
+              </h4>
+            </div>
+          </a>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div
+          class="resultContainer"
+        >
+          <a
+            class="link"
+            href="/items/:MLA900742789"
+          >
+            <div
+              class="result"
+            >
+              <div
+                class="imageContainer"
+              >
+                <img
+                  alt="Xiaomi Redmi Note 8 Dual Sim 64 Gb Neptune Blue 4 Gb Ram"
+                  class="image"
+                  src="http://http2.mlstatic.com/D_690469-MLA43556746460_092020-I.jpg"
+                />
+              </div>
+              <div
+                class="description"
+              >
+                <h3
+                  class="price"
+                >
+                  $ 35999 
+                  <img
+                    class="freeShipping"
+                    srcset="file-mock 1x, file-mock 2x"
+                  />
+                </h3>
+                <h4
+                  class="title"
+                >
+                  Xiaomi Redmi Note 8 Dual Sim 64 Gb Neptune Blue 4 Gb Ram
+                </h4>
+              </div>
+              <h4
+                class="location"
+              >
+                Balvanera
+              </h4>
+            </div>
+          </a>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div
+          class="resultContainer"
+        >
+          <a
+            class="link"
+            href="/items/:MLA885444591"
+          >
+            <div
+              class="result"
+            >
+              <div
+                class="imageContainer"
+              >
+                <img
+                  alt="Xiaomi Redmi Note 9 Dual Sim 128 Gb Verde Bosque 4 Gb Ram"
+                  class="image"
+                  src="http://http2.mlstatic.com/D_649732-MLA44161684792_112020-I.jpg"
+                />
+              </div>
+              <div
+                class="description"
+              >
+                <h3
+                  class="price"
+                >
+                  $ 43649.1 
+                  <img
+                    class="freeShipping"
+                    srcset="file-mock 1x, file-mock 2x"
+                  />
+                </h3>
+                <h4
+                  class="title"
+                >
+                  Xiaomi Redmi Note 9 Dual Sim 128 Gb Verde Bosque 4 Gb Ram
+                </h4>
+              </div>
+              <h4
+                class="location"
+              >
+                Capital Federal
+              </h4>
+            </div>
+          </a>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div
+          class="resultContainer"
+        >
+          <a
+            class="link"
+            href="/items/:MLA912545152"
+          >
+            <div
+              class="result"
+            >
+              <div
+                class="imageContainer"
+              >
+                <img
+                  alt="Xiaomi 9a Dual Sim 32 Gb Gris Granito 2 Gb Ram"
+                  class="image"
+                  src="http://http2.mlstatic.com/D_955855-MLA43167718739_082020-I.jpg"
+                />
+              </div>
+              <div
+                class="description"
+              >
+                <h3
+                  class="price"
+                >
+                  $ 25700 
+                  <img
+                    class="freeShipping"
+                    srcset="file-mock 1x, file-mock 2x"
+                  />
+                </h3>
+                <h4
+                  class="title"
+                >
+                  Xiaomi 9a Dual Sim 32 Gb Gris Granito 2 Gb Ram
+                </h4>
+              </div>
+              <h4
+                class="location"
+              >
+                Palpala
+              </h4>
+            </div>
+          </a>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div
+          class="resultContainer"
+        >
+          <a
+            class="link"
+            href="/items/:MLA880292021"
+          >
+            <div
+              class="result"
+            >
+              <div
+                class="imageContainer"
+              >
+                <img
+                  alt="Xiaomi Note 9 Dual Sim 64 Gb Verde Bosque 3 Gb Ram"
+                  class="image"
+                  src="http://http2.mlstatic.com/D_878392-MLA44161684781_112020-I.jpg"
+                />
+              </div>
+              <div
+                class="description"
+              >
+                <h3
+                  class="price"
+                >
+                  $ 37600 
+                  <img
+                    class="freeShipping"
+                    srcset="file-mock 1x, file-mock 2x"
+                  />
+                </h3>
+                <h4
+                  class="title"
+                >
+                  Xiaomi Note 9 Dual Sim 64 Gb Verde Bosque 3 Gb Ram
+                </h4>
+              </div>
+              <h4
+                class="location"
+              >
+                Córdoba
+              </h4>
+            </div>
+          </a>
+        </div>
+      </main>
+    </div>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`GIVEN Results Component WHEN results was retrieved THEN should render the loader 1`] = `
+<DocumentFragment>
+  <section
+    class="container"
+  >
+    <div
+      class="breadcrumbsContainer"
+    >
+      <nav
+        class="breadcrumbs"
+      >
+        loading...
+      </nav>
+    </div>
+    <div
+      class="contentContainer"
+    >
+      <main
+        class="content"
+        id="results"
+      />
+    </div>
+  </section>
+</DocumentFragment>
+`;

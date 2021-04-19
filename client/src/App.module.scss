@@ -1,10 +1,30 @@
 @import "utils/variables.scss";
 
 .main {
-  background-color: $bg-secondary;
+  background-color: $bg-primary;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
+  box-sizing: content-box;
+  position: relative;
+  top: 48px;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.section {
+  position: relative;
   overflow: hidden;
+  z-index: 1;
+}
+
+.page {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  box-sizing: content-box;
+  margin-bottom: calc(48px * 2);
 }

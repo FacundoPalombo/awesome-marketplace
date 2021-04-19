@@ -1,7 +1,7 @@
 import React from "react";
 import { NotFound } from "./NotFound";
 import { fireEvent } from "@testing-library/react";
-import { renderWithRouter } from "../utils/tests/renderWithRouter";
+import { renderWithRouter } from "utils/tests/renderWithRouter";
 import { createMemoryHistory } from "history";
 
 describe("GIVEN NotFound component", () => {

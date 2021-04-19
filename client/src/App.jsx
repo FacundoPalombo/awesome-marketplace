@@ -2,33 +2,37 @@ import React from "react";
 import styles from "./App.module";
 import { Switch, Route } from "react-router-dom";
 
-import { Detail } from "./container/Detail";
-import { Search } from "./container/Search";
+import { Detail } from "container/Detail";
+import { Search } from "container/Search";
 
-import { InputSearch } from "./components/InputSearch";
-import { NotFound } from "./common/NotFound/NotFound";
-import { Results } from "./container/Results";
+import { InputSearch } from "components/InputSearch/InputSearch";
+import { NotFound } from "common/NotFound/NotFound";
+import { Results } from "container/Results";
 
 export function App() {
   return (
     <>
-      <main id="main" className={styles.main}>
+      <section id="main" className={styles.section}>
         <InputSearch />
-        <Switch>
-          <Route exact path="/">
-            <Search />
-          </Route>
-          <Route exact path="/items">
-            <Results />
-          </Route>
-          <Route path="/items/:id">
-            <Detail />
-          </Route>
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
-      </main>
+        <main className={styles.main}>
+          <div className={styles.page}>
+            <Switch>
+              <Route exact path="/">
+                <Search />
+              </Route>
+              <Route exact path="/items">
+                <Results />
+              </Route>
+              <Route path="/items/:id">
+                <Detail />
+              </Route>
+              <Route path="*">
+                <NotFound />
+              </Route>
+            </Switch>
+          </div>
+        </main>
+      </section>
     </>
   );
 }

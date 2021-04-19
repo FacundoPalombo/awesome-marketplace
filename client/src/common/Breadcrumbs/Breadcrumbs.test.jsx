@@ -1,6 +1,6 @@
 import React from "react";
 import { Breadcrumbs } from "./Breadcrumbs";
-import { render } from "@testing-library/jest-dom";
+import { render } from "@testing-library/react";
 
 describe("GIVEN Breadcrumb component", () => {
   describe("WHEN rendered", () => {

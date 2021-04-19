@@ -111,6 +111,7 @@ module.exports = {
               importLoaders: 1,
               modules: {
                 compileType: "module",
+                localIdentName: "[name]__[local]--[hash:base64:5]",
               },
             },
           },
