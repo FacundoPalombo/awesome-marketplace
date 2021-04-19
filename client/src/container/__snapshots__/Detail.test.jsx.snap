@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GIVEN Detail Component WHEN page is rendered THEN should match to snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="container"
+  >
+    <div
+      class="breadcrumbsContainer"
+    >
+      <nav
+        class="breadcrumbs"
+      >
+        <nav
+          class="breadcrumbs"
+        />
+        loading...
+      </nav>
+    </div>
+    <div
+      class="contentContainer"
+    >
+      <main
+        class="content"
+        id="detail"
+      >
+        <div
+          class="container"
+        />
+      </main>
+    </div>
+  </section>
+</DocumentFragment>
+`;

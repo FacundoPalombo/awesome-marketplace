@@ -1,20 +1,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export function useItems(query) {
-  const [items, setItems] = useState({ items: [], categories: [] });
+export function useItem(id) {
+  const [item, setItem] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   useEffect(() => {
-    async function getItems(query) {
-      setItems({ items: [], categories: [] });
+    async function getItem(id) {
+      setItem({});
       setError(null);
       setLoading(true);
       await axios
-        .get(`http://0.0.0.0:3001/api/items?q=${query}`)
+        .get(`http://0.0.0.0:3001/api/item/${id}`)
         .then((response) => {
+          let priceFormatted = response.data.item.price.toLocaleString();
           setLoading(false);
-          setItems(response.data);
+          setItem({ ...response.data.item, price: priceFormatted });
         })
         .catch((err) => {
           setLoading(false);
@@ -24,7 +25,7 @@ export function useItems(query) {
           });
         });
     }
-    getItems(query);
-  }, [query]);
-  return [items, loading, error];
+    getItem(id);
+  }, [id]);
+  return [item, loading, error];
 }

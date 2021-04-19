@@ -45,8 +45,8 @@
     align-items: center;
     justify-content: center;
     border-radius: $half-unit;
-    border: 1px solid #ebebeb99;
 
+    margin-left: $unit-2;
     @include md {
       min-width: 140px;
       height: 140px;
@@ -67,12 +67,16 @@
 .price {
   font-size: 24px;
   font-weight: 400;
+  &::before {
+    content: "$";
+    padding-right: $unit;
+  }
   @include md {
     margin: $unit 0;
   }
 }
 .freeShipping {
-  margin-left: $half-unit;
+  margin-left: $unit;
 }
 .title {
   font-size: 18px;
@@ -96,6 +100,6 @@
   @include lg {
     display: flex;
     position: relative;
-    margin: $half-unit $half-unit 0 auto;
+    margin: $unit $unit-2 0 auto;
   }
 }

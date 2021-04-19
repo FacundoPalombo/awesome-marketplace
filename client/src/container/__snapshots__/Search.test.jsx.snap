@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GIVEN Search Component WHEN page is rendered THEN should match to snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="main"
+    id="search"
+  />
+</DocumentFragment>
+`;

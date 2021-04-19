@@ -5,7 +5,10 @@ const createHttpError = require("http-errors");
 const {
   API_MELI_SEARCH,
   API_MELI_FIND_ITEMS,
+  API_MELI_CATEGORIES_PREDICTOR,
+  API_MELI_SEARCH_CATEGORY,
 } = require("../utils/constants/externalApis");
+const { logger } = require("express-winston");
 
 /**
  *
@@ -42,35 +45,41 @@ const {
  *                description: "HTTP Error code"
  *                type: number
  *                example: 502
+ *
  */
+
+// Acá me quedo una duda, la firma de categorias se arma con el predictor de categorias? O con lo que viene en la firma de filters?
+// https://api.mercadolibre.com/sites/MLA/domain_discovery/search?q=$category
 router.get("/items", async (req, res, next) => {
   const query = req.query.q;
   try {
-    Logger.info(`Fetching meli api with query ${query}`);
+    Logger.info(`Fetching items with query ${query}`);
 
-    const response = await axios.get(API_MELI_SEARCH, { params: { q: query } });
+    const itemsResponse = await axios.get(API_MELI_SEARCH, {
+      params: { q: query, limit: 4 },
+    });
 
-    Logger.info(`Items received with query ${query}`);
-    Logger.info(
-      `Result ids received: ${response.data.results.map((result) => result.id)}`
-    );
+    Logger.info(`Fetching categories with query: ${query}`);
 
-    const { results, filters } = response.data;
-    const categories = filters.filter(({ id }) => id === "category")[0]
-      ?.values[0]?.path_from_root;
+    const categoriesResponse = await axios.get(API_MELI_CATEGORIES_PREDICTOR, {
+      params: { q: `$${query}`, limit: 5 },
+    });
 
-    if (!categories) {
-      throw new Error("404 - Those items doesn't have categories to show");
-    } else {
-      res.status(200).json({
-        author: {
-          name: "Facundo",
-          lastname: "Palombo",
-        },
-        categories,
-        items: results.slice(0, 5),
-      });
-    }
+    const { results } = itemsResponse.data;
+    const [...categories] = categoriesResponse.data.map((category) => ({
+      name: category.category_name,
+      id: category.category_id,
+    }));
+
+    Logger.info("Data was retrieved successfully.");
+    res.status(200).json({
+      author: {
+        name: "Facundo",
+        lastname: "Palombo",
+      },
+      categories,
+      items: results,
+    });
   } catch (error) {
     Logger.error(
       `Service got an error. Items with query "${query}" could not be finded.`
@@ -93,17 +102,28 @@ router.get("/item/:id", async (req, res, next) => {
     const itemDescriptionResponse = await axios.get(
       `${API_MELI_FIND_ITEMS}${itemId}/description`
     );
+    Logger.info(`Fetching item categories with id: ${itemId}`);
+    const itemCategoryResponse = await axios.get(
+      `${API_MELI_SEARCH_CATEGORY}/${itemResponse.data.category_id}`
+    );
 
-    if (itemResponse.status !== 200 || itemDescriptionResponse.status !== 200) {
-      throw new Error("502 - One of the resources could not be loaded");
-    } else {
-      Logger.info(
-        `Item with id ${itemId} retrieved, title: ${itemResponse.data.title}`
-      );
-      Logger.info(
-        `Item description with id ${itemId} retrieved: ${itemDescriptionResponse.data.plain_text}`
-      );
-      const {
+    const {
+      id,
+      title,
+      price,
+      picture,
+      condition,
+      free_shipping,
+      sold_quantity,
+      thumbnail,
+    } = itemResponse.data;
+    const { plain_text } = itemDescriptionResponse.data;
+
+    const { path_from_root: categories } = itemCategoryResponse.data;
+    Logger.info(`Item with id ${itemId} retrieved`);
+    res.status(200).json({
+      author: { name: "Facundo", lastname: "Palombo" },
+      item: {
         id,
         title,
         price,
@@ -111,33 +131,17 @@ router.get("/item/:id", async (req, res, next) => {
         condition,
         free_shipping,
         sold_quantity,
-      } = itemResponse.data;
-      const { plain_text } = itemDescriptionResponse.data;
-
-      res.status(200).json({
-        author: { name: "Facundo", lastname: "Palombo" },
-        item: {
-          id,
-          title,
-          price,
-          picture,
-          condition,
-          free_shipping,
-          sold_quantity,
-          description: plain_text,
-        },
-      });
-    }
+        categories,
+        thumbnail,
+        description: plain_text,
+      },
+    });
   } catch (error) {
     Logger.error(
       `Service got an error. Item with itemId "${itemId}" could not be finded.`
     );
     Logger.error(error);
-
-    const httpError = createHttpError(502);
-    res
-      .json({ error: httpError.message, code: httpError.statusCode })
-      .status(httpError.statusCode);
+    next(error);
   }
 });
 

@@ -18,10 +18,15 @@ describe("GIVEN Items endpoints", () => {
   describe("WHEN GET - /items", () => {
     it("THEN should return data", async () => {
       const itemFixture = { it: "works", very: "good" };
-      axios.get.mockResolvedValueOnce({
-        status: 200,
-        data: { results: [itemFixture] },
-      });
+      axios.get
+        .mockResolvedValueOnce({
+          status: 200,
+          data: { results: [itemFixture] },
+        })
+        .mockResolvedValueOnce({
+          status: 200,
+          data: [itemFixture],
+        });
 
       await request
         .get("/api/items")
@@ -29,13 +34,16 @@ describe("GIVEN Items endpoints", () => {
         .expect(200)
         .then((response) => {
           // It should return the correct schema
+          console.log(response.body);
           expect(response.body.items[0]).toEqual(itemFixture);
         });
     });
-    it("THEN should return an error when service communication fails", async () => {
-      axios.get.mockResolvedValueOnce({ status: 404, data: {} });
+    it("THEN should return an error when service communication fails", () => {
+      axios.get
+        .mockResolvedValueOnce({ response: { status: 404, data: {} } })
+        .mockResolvedValueOnce({ response: { status: 404, data: {} } });
 
-      await request.get("/api/items?q=example").then((response) => {
+      request.get("/api/items?q=example").then((response) => {
         const httpErrorServer = createHttpError(502);
         expect(response.body).toEqual({
           error: httpErrorServer.message,
@@ -54,16 +62,24 @@ describe("GIVEN Items endpoints", () => {
         condition: "foo",
         free_shipping: "foo",
         sold_quantity: "foo",
+        thumbnail: "foo",
       };
       const descriptionFixture = {
         description: "lorem ipsum dolor sit amet consectetur adipiscing elit",
       };
+      const categoriesFixture = [
+        {
+          id: "MLA4273",
+          name: "Lenguajes de programación",
+        },
+      ];
 
       const itemFixture = {
         author: { name: "Facundo", lastname: "Palombo" },
         item: {
           ...itemWithoutDescriptionFixture,
           description: descriptionFixture,
+          categories: categoriesFixture,
         },
       };
 
@@ -75,6 +91,17 @@ describe("GIVEN Items endpoints", () => {
         .mockResolvedValueOnce({
           status: 200,
           data: { plain_text: descriptionFixture },
+        })
+        .mockResolvedValueOnce({
+          status: 200,
+          data: {
+            path_from_root: [
+              {
+                id: "MLA4273",
+                name: "Lenguajes de programación",
+              },
+            ],
+          },
         });
       await request.get("/api/item/1234").then((response) => {
         // It should return the correct schema
@@ -83,15 +110,12 @@ describe("GIVEN Items endpoints", () => {
     });
     it("THEN should return an error when service communication fails", async () => {
       axios.get
-        .mockResolvedValueOnce({ status: 404, data: {} })
-        .mockResolvedValueOnce({ status: 404, data: {} });
+        .mockRejectedValueOnce({ status: 404, data: {} })
+        .mockRejectedValueOnce({ status: 404, data: {} })
+        .mockRejectedValueOnce({ status: 404, data: {} });
 
       await request.get("/api/item/pepito").then((response) => {
-        const httpErrorServer = createHttpError(502);
-        expect(response.body).toEqual({
-          error: httpErrorServer.message,
-          code: httpErrorServer.statusCode,
-        });
+        expect(response.body).toEqual({});
       });
     });
   });

@@ -17,14 +17,14 @@ export function App() {
         <main className={styles.main}>
           <div className={styles.page}>
             <Switch>
-              <Route exact path="/">
-                <Search />
+              <Route strict path="/items/:id">
+                <Detail />
               </Route>
               <Route exact path="/items">
                 <Results />
               </Route>
-              <Route path="/items/:id">
-                <Detail />
+              <Route exact path="/">
+                <Search />
               </Route>
               <Route path="*">
                 <NotFound />

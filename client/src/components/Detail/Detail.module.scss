@@ -1,0 +1,93 @@
+@import "utils/variables.scss";
+.container {
+  display: flex;
+  flex-direction: row;
+
+  @include xl {
+    flex-direction: column;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  align-items: space-around;
+  padding: $unit-4 0 $unit-4 $unit-4;
+  @include xl {
+    width: 80%;
+  }
+}
+
+.imageContainer {
+  width: 100%;
+  height: auto;
+  box-sizing: content-box;
+}
+
+.thumbnail {
+  width: 100%;
+  max-width: 680px;
+  max-height: 680px;
+  @include xl {
+    box-sizing: content-box;
+  }
+}
+
+.price {
+  margin-block: $unit-4;
+  font-size: 46px;
+  font-weight: 400;
+  &::before {
+    content: "$";
+    padding-right: $unit;
+  }
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  padding: $unit-4 $unit-4 $unit-4 $unit-4;
+  width: 30%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  @include xl {
+    width: 100%;
+    padding: $unit-4;
+    box-sizing: border-box;
+  }
+}
+
+.title {
+  margin-block: 0;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.condition {
+  font-size: 14px;
+  margin-block: 0 $unit-2;
+}
+
+.cta {
+  padding: $unit;
+  background-color: $cta;
+  outline: none;
+  border: none;
+  border-radius: $half-unit;
+  color: #ffffff;
+  width: 100%;
+  @include xl {
+    align-self: center;
+    width: 80%;
+  }
+}
+
+.description {
+  font-size: 16px;
+  text-overflow: ellipsis;
+  &Title {
+    font-weight: 500;
+    font-size: 28px;
+  }
+}

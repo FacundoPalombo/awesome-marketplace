@@ -13,8 +13,15 @@ export function useItems(query) {
       await axios
         .get(`http://0.0.0.0:3001/api/items?q=${query}`)
         .then((response) => {
+          const { data } = response;
+          const items = response.data.items.map((item) => ({
+            ...item,
+            price: item.price.toLocaleString(),
+          }));
+
+          const dataSanitized = { ...data, ...{ items } };
           setLoading(false);
-          setItems(response.data);
+          setItems(dataSanitized);
         })
         .catch((err) => {
           setLoading(false);

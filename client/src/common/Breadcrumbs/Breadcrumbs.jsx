@@ -5,7 +5,7 @@ import styles from "./Breadcrumbs.module";
 export function Breadcrumbs({ categories }) {
   return (
     <nav className={styles.breadcrumbs}>
-      {categories.length &&
+      {categories?.length &&
         categories.map((category, index) => (
           <span key={category.id} className={styles.container}>
             <a className={styles.breadcrumb}>{category.name}</a>
@@ -17,5 +17,7 @@ export function Breadcrumbs({ categories }) {
 }
 
 Breadcrumbs.propTypes = {
-  categories: PropTypes.arrayOf(PropTypes.string),
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({ name: PropTypes.string, id: PropTypes.string })
+  ),
 };

@@ -60,6 +60,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[id]_[name].bundle.js",
+    publicPath: "/",
     uniqueName: "awesome-marketplace-client",
   },
   devServer,

@@ -15,14 +15,14 @@ export function Result({
   thumbnail,
 }) {
   return (
-    <Link to={`/items/:${id}`} className={styles.link}>
+    <Link to={`/items/${id}`} className={styles.link}>
       <div className={styles.result}>
         <div className={styles.imageContainer}>
           <img src={thumbnail} className={styles.image} alt={title} />
         </div>
         <div className={styles.description}>
           <h3 className={styles.price}>
-            $ {price}{" "}
+            {price}
             {freeShipping && (
               <img
                 className={styles.freeShipping}
@@ -41,7 +41,7 @@ export function Result({
 Result.propTypes = {
   address: PropTypes.shape({ sellerLocation: PropTypes.string }),
   id: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.string,
   shipping: PropTypes.shape({ freeShipping: PropTypes.bool }),
   thumbnail: PropTypes.string,
   title: PropTypes.string,
