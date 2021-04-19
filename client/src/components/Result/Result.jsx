@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styles from "./Result.module";
 import { useHistory, Link } from "react-router-dom";
@@ -6,12 +7,12 @@ import iconFreeShipping from "assets/icon-shipping.png";
 import iconFreeShipping2x from "assets/icon-shipping@2x.png";
 
 export function Result({
+  address: { city_name: sellerLocation },
   id,
-  thumbnail,
+  price,
   shipping: { free_shipping: freeShipping },
   title,
-  price,
-  address: { city_name: sellerLocation },
+  thumbnail,
 }) {
   return (
     <Link to={`/items/:${id}`} className={styles.link}>
@@ -36,3 +37,12 @@ export function Result({
     </Link>
   );
 }
+
+Result.propTypes = {
+  address: PropTypes.shape({ sellerLocation: PropTypes.string }),
+  id: PropTypes.string,
+  price: PropTypes.number,
+  shipping: PropTypes.shape({ freeShipping: PropTypes.bool }),
+  thumbnail: PropTypes.string,
+  title: PropTypes.string,
+};

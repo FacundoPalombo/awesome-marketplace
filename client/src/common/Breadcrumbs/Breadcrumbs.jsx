@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styles from "./Breadcrumbs.module";
 
@@ -14,3 +15,7 @@ export function Breadcrumbs({ categories }) {
     </nav>
   );
 }
+
+Breadcrumbs.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.string),
+};
