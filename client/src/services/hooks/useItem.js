@@ -15,7 +15,7 @@ export function useItem(id) {
         .then((response) => {
           let priceFormatted = response.data.item.price.toLocaleString();
           setLoading(false);
-          setItem({ ...response.data.item, price: priceFormatted });
+          setItem({ ...response.data.item, ...{ price: priceFormatted } });
         })
         .catch((err) => {
           setLoading(false);

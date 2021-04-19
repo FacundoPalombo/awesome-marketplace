@@ -4,7 +4,7 @@ exports[`GIVEN Result Component WHEN results was NOT retrieved THEN should match
 <DocumentFragment>
   <a
     class="link"
-    href="/items/:undefined"
+    href="/items/undefined"
   >
     <div
       class="result"
@@ -21,9 +21,7 @@ exports[`GIVEN Result Component WHEN results was NOT retrieved THEN should match
       >
         <h3
           class="price"
-        >
-          $  
-        </h3>
+        />
         <h4
           class="title"
         />
@@ -40,7 +38,7 @@ exports[`GIVEN Result Component WHEN results was retrieved THEN should match to 
 <DocumentFragment>
   <a
     class="link"
-    href="/items/:MLA804207795"
+    href="/items/MLA804207795"
   >
     <div
       class="result"
@@ -60,7 +58,7 @@ exports[`GIVEN Result Component WHEN results was retrieved THEN should match to 
         <h3
           class="price"
         >
-          $ 39999 
+          39999
           <img
             class="freeShipping"
             srcset="file-mock 1x, file-mock 2x"

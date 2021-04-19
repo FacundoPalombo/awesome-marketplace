@@ -9,10 +9,6 @@ export function Detail() {
   const { id } = useParams();
   const [item, loading, error] = useItem(id);
 
-  useEffect(() => {
-    console.log(item);
-  }, [item]);
-
   return (
     <section className={styles.container}>
       <div className={styles.breadcrumbsContainer}>
@@ -21,29 +17,30 @@ export function Detail() {
             <Breadcrumbs categories={item.categories} />
           )}
           {/* TODO: improve this xD */}
-          {loading && "loading..."}
-          {error && (
-            <pre>
-              Error {error.code} - {error.message}
-            </pre>
-          )}
         </nav>
       </div>
-
-      <div className={styles.contentContainer}>
-        <main className={styles.content} id="detail">
-          <DetailWrapper
-            id={item.id}
-            title={item.title}
-            price={item.price}
-            condition={item.condition}
-            soldQuantity={item.sold_quantity}
-            categories={item.categories}
-            description={item.description}
-            thumbnail={item.thumbnail}
-          />
-        </main>
-      </div>
+      {loading && "loading..."}
+      {error && (
+        <pre>
+          Error {error.code} - {error.message}
+        </pre>
+      )}
+      {Object.entries(item).length !== 0 ? (
+        <div className={styles.contentContainer}>
+          <main className={styles.content} id="detail">
+            <DetailWrapper
+              id={item.id}
+              title={item.title}
+              price={item.price}
+              condition={item.condition}
+              soldQuantity={item.sold_quantity}
+              categories={item.categories}
+              description={item.description}
+              thumbnail={item.thumbnail}
+            />
+          </main>
+        </div>
+      ) : null}
     </section>
   );
 }

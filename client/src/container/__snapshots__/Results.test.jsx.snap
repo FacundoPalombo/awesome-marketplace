@@ -48,7 +48,7 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should match to
         >
           <a
             class="link"
-            href="/items/:MLA899573282"
+            href="/items/MLA899573282"
           >
             <div
               class="result"
@@ -68,7 +68,7 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should match to
                 <h3
                   class="price"
                 >
-                  $ 34600 
+                  34.600
                   <img
                     class="freeShipping"
                     srcset="file-mock 1x, file-mock 2x"
@@ -96,7 +96,7 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should match to
         >
           <a
             class="link"
-            href="/items/:MLA900742789"
+            href="/items/MLA900742789"
           >
             <div
               class="result"
@@ -116,7 +116,7 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should match to
                 <h3
                   class="price"
                 >
-                  $ 35999 
+                  35.999
                   <img
                     class="freeShipping"
                     srcset="file-mock 1x, file-mock 2x"
@@ -144,7 +144,7 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should match to
         >
           <a
             class="link"
-            href="/items/:MLA885444591"
+            href="/items/MLA885444591"
           >
             <div
               class="result"
@@ -164,7 +164,7 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should match to
                 <h3
                   class="price"
                 >
-                  $ 43649.1 
+                  43.649,1
                   <img
                     class="freeShipping"
                     srcset="file-mock 1x, file-mock 2x"
@@ -192,7 +192,7 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should match to
         >
           <a
             class="link"
-            href="/items/:MLA912545152"
+            href="/items/MLA912545152"
           >
             <div
               class="result"
@@ -212,7 +212,7 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should match to
                 <h3
                   class="price"
                 >
-                  $ 25700 
+                  25.700
                   <img
                     class="freeShipping"
                     srcset="file-mock 1x, file-mock 2x"
@@ -240,7 +240,7 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should match to
         >
           <a
             class="link"
-            href="/items/:MLA880292021"
+            href="/items/MLA880292021"
           >
             <div
               class="result"
@@ -260,7 +260,7 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should match to
                 <h3
                   class="price"
                 >
-                  $ 37600 
+                  37.600
                   <img
                     class="freeShipping"
                     srcset="file-mock 1x, file-mock 2x"
@@ -281,6 +281,34 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should match to
           </a>
         </div>
       </main>
+    </div>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`GIVEN Results Component WHEN results was retrieved THEN should render the error 1`] = `
+<DocumentFragment>
+  <section
+    class="container"
+  >
+    <div
+      class="breadcrumbsContainer"
+    >
+      <nav
+        class="breadcrumbs"
+      >
+        <pre>
+          Error 420 - Oops. Snoop error
+        </pre>
+      </nav>
+    </div>
+    <div
+      class="contentContainer"
+    >
+      <main
+        class="content"
+        id="results"
+      />
     </div>
   </section>
 </DocumentFragment>

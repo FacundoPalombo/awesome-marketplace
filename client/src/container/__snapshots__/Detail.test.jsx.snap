@@ -14,7 +14,6 @@ exports[`GIVEN Detail Component WHEN page is rendered THEN should match to snaps
         <nav
           class="breadcrumbs"
         />
-        loading...
       </nav>
     </div>
     <div
@@ -26,7 +25,207 @@ exports[`GIVEN Detail Component WHEN page is rendered THEN should match to snaps
       >
         <div
           class="container"
+        >
+          <div
+            class="content"
+          >
+            <div
+              class="imageContainer"
+            >
+              <img
+                class="thumbnail"
+              />
+            </div>
+            <h4
+              class="descriptionTitle"
+            >
+              Descripción del producto
+            </h4>
+            <p
+              class="description"
+            />
+          </div>
+          <div
+            class="heading"
+          >
+            <p
+              class="condition"
+            >
+              Usado -  vendidos
+            </p>
+            <h4
+              class="title"
+            />
+            <h3
+              class="price"
+            />
+            <button
+              class="cta"
+            >
+              Comprar
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`GIVEN Detail Component WHEN page is rendered THEN should render the empty state 1`] = `
+<DocumentFragment>
+  <section
+    class="container"
+  >
+    <div
+      class="breadcrumbsContainer"
+    >
+      <nav
+        class="breadcrumbs"
+      >
+        <nav
+          class="breadcrumbs"
         />
+      </nav>
+    </div>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`GIVEN Detail Component WHEN page is rendered THEN should render the error 1`] = `
+<DocumentFragment>
+  <section
+    class="container"
+  >
+    <div
+      class="breadcrumbsContainer"
+    >
+      <nav
+        class="breadcrumbs"
+      />
+    </div>
+    <pre>
+      Error 420 - Oops. Snoop error
+    </pre>
+    <div
+      class="contentContainer"
+    >
+      <main
+        class="content"
+        id="detail"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="content"
+          >
+            <div
+              class="imageContainer"
+            >
+              <img
+                class="thumbnail"
+              />
+            </div>
+            <h4
+              class="descriptionTitle"
+            >
+              Descripción del producto
+            </h4>
+            <p
+              class="description"
+            />
+          </div>
+          <div
+            class="heading"
+          >
+            <p
+              class="condition"
+            >
+              Usado -  vendidos
+            </p>
+            <h4
+              class="title"
+            />
+            <h3
+              class="price"
+            />
+            <button
+              class="cta"
+            >
+              Comprar
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`GIVEN Detail Component WHEN page is rendered THEN should render the loader 1`] = `
+<DocumentFragment>
+  <section
+    class="container"
+  >
+    <div
+      class="breadcrumbsContainer"
+    >
+      <nav
+        class="breadcrumbs"
+      />
+    </div>
+    loading...
+    <div
+      class="contentContainer"
+    >
+      <main
+        class="content"
+        id="detail"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="content"
+          >
+            <div
+              class="imageContainer"
+            >
+              <img
+                class="thumbnail"
+              />
+            </div>
+            <h4
+              class="descriptionTitle"
+            >
+              Descripción del producto
+            </h4>
+            <p
+              class="description"
+            />
+          </div>
+          <div
+            class="heading"
+          >
+            <p
+              class="condition"
+            >
+              Usado -  vendidos
+            </p>
+            <h4
+              class="title"
+            />
+            <h3
+              class="price"
+            />
+            <button
+              class="cta"
+            >
+              Comprar
+            </button>
+          </div>
+        </div>
       </main>
     </div>
   </section>

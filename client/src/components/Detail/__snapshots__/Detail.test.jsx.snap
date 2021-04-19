@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GIVEN Detail Component WHEN detail was retrieved AND product is new THEN should match to snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="content"
+    >
+      <div
+        class="imageContainer"
+      >
+        <img
+          class="thumbnail"
+        />
+      </div>
+      <h4
+        class="descriptionTitle"
+      >
+        Descripción del producto
+      </h4>
+      <p
+        class="description"
+      />
+    </div>
+    <div
+      class="heading"
+    >
+      <p
+        class="condition"
+      >
+        Usado -  vendidos
+      </p>
+      <h4
+        class="title"
+      />
+      <h3
+        class="price"
+      />
+      <button
+        class="cta"
+      >
+        Comprar
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`GIVEN Detail Component WHEN detail was retrieved AND product is used THEN should match to snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="content"
+    >
+      <div
+        class="imageContainer"
+      >
+        <img
+          class="thumbnail"
+        />
+      </div>
+      <h4
+        class="descriptionTitle"
+      >
+        Descripción del producto
+      </h4>
+      <p
+        class="description"
+      />
+    </div>
+    <div
+      class="heading"
+    >
+      <p
+        class="condition"
+      >
+        Nuevo -  vendidos
+      </p>
+      <h4
+        class="title"
+      />
+      <h3
+        class="price"
+      />
+      <button
+        class="cta"
+      >
+        Comprar
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`GIVEN Detail Component WHEN results was NOT retrieved THEN should match to snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="content"
+    >
+      <div
+        class="imageContainer"
+      >
+        <img
+          class="thumbnail"
+        />
+      </div>
+      <h4
+        class="descriptionTitle"
+      >
+        Descripción del producto
+      </h4>
+      <p
+        class="description"
+      />
+    </div>
+    <div
+      class="heading"
+    >
+      <p
+        class="condition"
+      >
+        Usado -  vendidos
+      </p>
+      <h4
+        class="title"
+      />
+      <h3
+        class="price"
+      />
+      <button
+        class="cta"
+      >
+        Comprar
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

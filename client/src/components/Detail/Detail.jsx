@@ -37,7 +37,7 @@ export function Detail({
 Detail.propTypes = {
   id: PropTypes.string,
   title: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.string,
   condition: PropTypes.string,
   sold_quantity: PropTypes.number,
   categories: PropTypes.arrayOf(

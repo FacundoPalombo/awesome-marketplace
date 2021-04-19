@@ -7,7 +7,7 @@ jest.mock("axios", () => ({ get: jest.fn() }));
 describe("GIVEN useItems hook", () => {
   describe("WHEN service call is triggered", () => {
     it("AND is successfull THEN should return data", async () => {
-      const mockResult = { items: [{ foo: "bar" }], categories: ["books"] };
+      const mockResult = { items: [{ price: 10000 }], categories: [] };
       axios.get.mockResolvedValueOnce({
         data: mockResult,
       });
@@ -15,11 +15,14 @@ describe("GIVEN useItems hook", () => {
       expect(result.current[0]).toEqual({ items: [], categories: [] });
       expect(result.current[1]).toEqual(true);
       await waitForNextUpdate();
-      expect(result.current[0]).toEqual(mockResult);
+      expect(result.current[0]).toEqual({
+        items: [{ price: "10.000" }],
+        categories: [],
+      });
       expect(result.current[1]).toEqual(false);
     });
     it("AND trigger an error THEN should return error", async () => {
-      axios.get.mockRejectedValue({
+      axios.get.mockRejectedValueOnce({
         response: {
           status: 404,
           statusText: "Error 404 not found",

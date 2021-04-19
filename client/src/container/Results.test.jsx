@@ -18,6 +18,14 @@ describe("GIVEN Results Component", () => {
       const { asFragment } = renderWithRouter(<Results />);
       expect(asFragment()).toMatchSnapshot();
     });
-    xit("THEN should change the url search params", () => {});
+    it("THEN should render the error", () => {
+      useItems.mockReturnValue([
+        { categories: [], items: [] },
+        false,
+        { message: "Oops. Snoop error", code: "420" },
+      ]);
+      const { asFragment } = renderWithRouter(<Results />);
+      expect(asFragment()).toMatchSnapshot();
+    });
   });
 });

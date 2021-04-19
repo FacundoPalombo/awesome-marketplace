@@ -45,7 +45,7 @@ export default {
           level_id: "5_green",
         },
       },
-      price: 34600,
+      price: "34.600",
       prices: {
         id: "MLA899573282",
         prices: [
@@ -319,7 +319,7 @@ export default {
           level_id: "5_green",
         },
       },
-      price: 35999,
+      price: "35.999",
       prices: {
         id: "MLA900742789",
         prices: [
@@ -545,7 +545,7 @@ export default {
           level_id: "5_green",
         },
       },
-      price: 43649.1,
+      price: "43.649,1",
       prices: {
         id: "MLA885444591",
         prices: [
@@ -845,7 +845,7 @@ export default {
           level_id: "5_green",
         },
       },
-      price: 25700,
+      price: "25.700",
       prices: {
         id: "MLA912545152",
         prices: [
@@ -1070,7 +1070,7 @@ export default {
           level_id: "5_green",
         },
       },
-      price: 37600,
+      price: "37.600",
       prices: {
         id: "MLA880292021",
         prices: [
