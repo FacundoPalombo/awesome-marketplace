@@ -1,57 +1,63 @@
-# Awesome Marketplace
+# 🚀 Awesome marketplace
 
-- [Awesome Marketplace](#awesome-marketplace)
-  - [Requisitos minimos](#requisitos-minimos)
-    - [Instalación del proyecto](#instalación-del-proyecto)
+- [🚀 Awesome marketplace](#-awesome-marketplace)
+  - [Correr las pruebas](#correr-las-pruebas)
+  - [Correr los ambientes de desarrollo](#correr-los-ambientes-de-desarrollo)
+  - [Buildear el proyecto (TODO)](#buildear-el-proyecto-todo)
+  - [Docs 📝](#docs-)
 
-## Requisitos minimos
 
-Para correr este proyecto necesitamos:
-
-- Docker 19.03^
-- Docker Compose compatible con Docker compose 2.4^
-- Node.js 15.12^
-- npm 7.6.3^
-
-Para instalar los requisitos minimos de software propongo seguir las siguientes guias:
-
-- Manual de instalación de docker: https://docs.docker.com/engine/install/ubuntu/
-- Manual de instalación de docker compose: https://docs.docker.com/compose/install/
-- Manual para instalar Node.js y NPM con Node Version Manager: https://github.com/nvm-sh/nvm#installing-and-updating
-
-### Instalación del proyecto
-
-Ya instalado el software necesario, clonamos el proyecto:
-
-```bash
-$ git clone https://www.github.com/FacundoPalombo/awesome-marketplace/
+## Correr las pruebas
+  Cada repo, server y client, tiene su script de coverage. Si bien  en el build se ejecutan. Puedes crear el reporte de coverage corriendo:
+```node
+  $ npm run coverage
 ```
 
-Vamos al directorio
+## Correr los ambientes de desarrollo
+  Para correr los ambientes de desarrollo en cada proyecto puedes utilizar
 
-```bash
-$ cd awesome-marketplace
+```node
+  $ npm run dev
 ```
 
-Y corremos en nuestra consola:
+Webpack está configurado para que haga de proxy a las peticiones pasadas por los puertos locales de desarrollo.
+
+
+## Buildear el proyecto (TODO)
+
+Para buildear el proyecto, están provistas unas imagenes de docker que pueden correrse en multiples stages.
+Este caso es para ejecutar el build de producción. 
+Para comenzar, procura estar en el root del monorepo y ejecuta:
 
 ```bash
-$ sudo chmod -x ./init.sh && sh ./init.sh
+
+ $ docker build -t awesome-marketplace_client:prod \
+ --target deploy ./client && \
+ docker build -t awesome-marketplace_server:prod \
+ --target prod ./server
+
 ```
 
-Si el comando de arriba falla, prueba ejecutando con alguna consola basada en unix shell como bash...
+Luego de ello, para hacer correr los containers ejecuta:
 
-Sinó, puedes ejecutar en secuencia los siguientes comandos para levantar el docker-compose.
-Asegurate de estar en directorio root de awesome-marketplace y corre:
+Para el cliente
+```bash
+  $ docker run -p 5004:80 awesome-marketplace_client:prod
+```
+Para el server
+```bash
+  docker run -p 5005:8080 awesome-marketplace_server:prod
+```
+
+Luego de utilizarlos para matar los procesos de docker puedes usar:
 
 ```bash
-npm i
+  docker container kill $(docker ps -q | grep "awesome-marketplace")
 ```
-
-```bash
-sudo docker-compose build
-```
-
-```bash
-sudo docker-compose up
-```
+  ## Docs 📝
+  Para ver los documentos de la api. Correr el servidor `npm run dev || npm start` e ingresar a la ruta:
+  ```http
+    http://0.0.0.0/3001/api-docs/
+  ```
+- TODO: Faltan las configuraciones para inyectar las variables de entorno y sacarlas del process.env en el cliente y pasarlas al window.env. Por lo que todavía no se pueden comunicar las dos aplicaciones en el modo productivo. Pero se pueden correr en contenedores por separado a modo de pruebas.
+- TODO2: Para el modo productivo también debería habilitar las reglas de CORS y CSP en el cliente y el server...

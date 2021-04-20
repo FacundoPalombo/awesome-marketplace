@@ -8,48 +8,38 @@ const {
   API_MELI_CATEGORIES_PREDICTOR,
   API_MELI_SEARCH_CATEGORY,
 } = require("../utils/constants/externalApis");
-const { logger } = require("express-winston");
-
-/**
- *
- * @swagger
- * /api/items:
- *    method:
- *      tags:
- *        - items
- *        - shopping
- *      summary: "GET"
- *      produces: [application/json]
- *      parameters:
- *        - name: "q"
- *          description: "Keyword to search in the api"
- *          in: query
- *          required: true
- *          type: string
- *          example: "cubo rubik"
- *      responses:
- *        200:
- *          description: "Devuelve una lista de objetos"
- *          schema:
- *            $ref: #/components/schemas/Items
- *        502:
- *          description: "Service goes trough 502 error when the resource was not founded from the external api."
- *          schema:
- *            type: object
- *            properties:
- *              error:
- *                description: "Error description"
- *                type: string
- *                example: "Bad gateway"
- *              code:
- *                description: "HTTP Error code"
- *                type: number
- *                example: 502
- *
- */
 
 // Acá me quedo una duda, la firma de categorias se arma con el predictor de categorias? O con lo que viene en la firma de filters?
 // https://api.mercadolibre.com/sites/MLA/domain_discovery/search?q=$category
+
+/**
+ * @swagger
+ * /items:
+ *   get:
+ *     summary: Retrieve a list of items from mercadolibre arg
+ *     description: Retrieve a full list of items from mercadolibre arg.
+ *     parameters:
+ *     - in: q
+ *       name: query
+ *       schema:
+ *         type: string
+ *         required: true
+ *         description: The items related to search in the api.
+ *         example: Iphone X
+ *     responses:
+ *       "200":
+ *         description: A list of items
+ *         content:
+ *           application/json:
+ *            schema:
+ *              '$ref': "#/components/schemas/ItemsResponse"
+ *       "502":
+ *         description: Service got an error of communication with the external api.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               '$ref': "#/components/schemas/HttpError"
+ */
 router.get("/items", async (req, res, next) => {
   const query = req.query.q;
   try {
@@ -93,6 +83,34 @@ router.get("/items", async (req, res, next) => {
   }
 });
 
+/**
+ * @swagger
+ * /item/{itemId}:
+ *   get:
+ *     summary: Retrieve the details of an item by id
+ *     description: Retrieve the details of an item by id
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         description: Item id
+ *         required: true
+ *         schema:
+ *           type: string
+ *           example: "MLA911126613"
+ *     responses:
+ *       "200":
+ *         description: The details of an item
+ *         content:
+ *           application/json:
+ *            schema:
+ *              '$ref': "#/components/schemas/ItemResponse"
+ *       "502":
+ *         description: Service got an error of communication with the external api.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               '$ref': "#/components/schemas/HttpError"
+ */
 router.get("/item/:id", async (req, res, next) => {
   const itemId = req.params.id;
   try {
