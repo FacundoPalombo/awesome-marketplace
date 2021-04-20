@@ -4,6 +4,7 @@ import { useItem } from "services/hooks/useItem";
 import styles from "./Detail.module";
 import { Breadcrumbs } from "common/Breadcrumbs/Breadcrumbs";
 import { Detail as DetailWrapper } from "components/Detail/Detail";
+import { Helmet } from "react-helmet";
 
 export function Detail() {
   const { id } = useParams();
@@ -27,6 +28,10 @@ export function Detail() {
       )}
       {Object.entries(item).length !== 0 ? (
         <div className={styles.contentContainer}>
+          <Helmet>
+            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+            <title>Detalle del producto</title>
+          </Helmet>
           <main className={styles.content} id="detail">
             <DetailWrapper
               id={item.id}

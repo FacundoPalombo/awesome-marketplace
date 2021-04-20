@@ -59,6 +59,7 @@ exports[`GIVEN App WHEN render THEN should match to snapshot 1`] = `
           class="main"
           id="search"
         />
+        ;
       </div>
     </main>
   </section>
