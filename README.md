@@ -55,7 +55,7 @@ Luego de utilizarlos para matar los procesos de docker puedes usar:
   docker container kill $(docker ps -q | grep "awesome-marketplace")
 ```
   ## Docs 📝
-  Para ver los documentos de la api. Correr el servidor `npm run dev || npm start` e ingresar a la ruta:
+  Para ver los documentos de la api. Correr el servidor: `npm run dev || npm start` e ingresar a la ruta:
   ```http
     http://0.0.0.0/3001/api-docs/
   ```

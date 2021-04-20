@@ -15,7 +15,7 @@ definition:
       url: https://github.com/FacundoPalombo
       email: facundo.palombo@gmail.com
   servers:
-    - url: http://localhost:5001/
+    - url: http://localhost:3001/
       description: Local server
   paths:
   components:

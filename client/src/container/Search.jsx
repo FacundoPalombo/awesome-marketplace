@@ -9,7 +9,7 @@ export function Search() {
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
         <title>Busqueda de productos</title>
       </Helmet>
-      <section id="search" className={styles.main}></section>;
+      <section id="search" className={styles.main}></section>
     </>
   );
 }

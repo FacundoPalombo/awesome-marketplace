@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 const path = require("path");
 const timeout = require("connect-timeout");
 const cors = require("cors");
+const helmet = require("helmet");
 
 const logger = require("morgan");
 const swaggerUi = require("swagger-ui-express");
@@ -23,6 +24,7 @@ app.use(cors({ origin: "*" }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(timeout("6s"));
+app.use(helmet());
 
 // error handler
 app.use(function (err, req, res, next) {

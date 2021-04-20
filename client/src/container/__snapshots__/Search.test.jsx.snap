@@ -6,6 +6,5 @@ exports[`GIVEN Search Component WHEN page is rendered THEN should match to snaps
     class="main"
     id="search"
   />
-  ;
 </DocumentFragment>
 `;
