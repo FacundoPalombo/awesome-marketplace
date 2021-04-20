@@ -16,7 +16,7 @@ export function useItems(query) {
           const { data } = response;
           const items = response.data.items.map((item) => ({
             ...item,
-            price: item.price.toLocaleString(),
+            price: item.price.toLocaleString("es-AR"),
           }));
 
           const dataSanitized = { ...data, ...{ items } };

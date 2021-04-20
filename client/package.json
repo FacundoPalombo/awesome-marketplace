@@ -1,13 +1,13 @@
 {
-  "version": "1.0.0",
-  "description": "My webpack project",
-  "name": "my-webpack-project",
+  "version": "0.1.0",
+  "description": "Awesome marketplace, reto de MELI",
+  "name": "awesome-marketplace-client",
   "scripts": {
-    "build": "webpack --mode=production",
-    "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production",
-    "watch": "webpack --watch",
-    "dev": "webpack serve",
+    "build": "node_modules/.bin/webpack --mode=production",
+    "build:dev": "node_modules/.bin/webpack --mode=development",
+    "build:prod": "node_modules/.bin/webpack --mode=production",
+    "watch": "node_modules/.bin/webpack --watch",
+    "dev": "node_modules/.bin/webpack serve",
     "test": "jest --watch --silent",
     "coverage": "jest  --coverage --runInBand --watchAll=false"
   },

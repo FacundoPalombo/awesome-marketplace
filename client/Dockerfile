@@ -40,7 +40,7 @@ COPY . .
 
 RUN npm audit
 
-RUN npm coverage
+RUN npm run coverage
 
 # Run some tests like sonar or code smells scanner
 
@@ -60,7 +60,11 @@ CMD ["npm", "run", "build"]
 
 FROM nginx:1.19.9-alpine as deploy
 
-COPY --from=prod /app/build /usr/share/nginx/html
+RUN rm -rf /etc/nginx/conf.d
+
+COPY conf.d /etc/nginx
+
+COPY --from=prod /app/dist /usr/share/nginx/html
 
 EXPOSE 80
 

@@ -13,7 +13,7 @@ export function useItem(id) {
       await axios
         .get(`http://0.0.0.0:3001/api/item/${id}`)
         .then((response) => {
-          let priceFormatted = response.data.item.price.toLocaleString();
+          let priceFormatted = response.data.item.price.toLocaleString("es-AR");
           setLoading(false);
           setItem({ ...response.data.item, ...{ price: priceFormatted } });
         })

@@ -1,9 +1,11 @@
-# 🚀 Awesome marketplace - Client
+# 🚀 Awesome marketplace - Server
 
-- [🚀 Awesome marketplace - Client](#-awesome-marketplace---client)
+- [🚀 Awesome marketplace - Server](#-awesome-marketplace---server)
   - [Correr las pruebas](#correr-las-pruebas)
   - [Correr los ambientes de desarrollo](#correr-los-ambientes-de-desarrollo)
   - [Buildear el proyecto (TODO)](#buildear-el-proyecto-todo)
+
+
 ## Correr las pruebas
   Cada repo, server y client, tiene su script de coverage. Si bien  en el build se ejecutan. Puedes crear el reporte de coverage corriendo:
 ```node
@@ -29,7 +31,7 @@ Para comenzar, procura estar en el root del monorepo y ejecuta:
 ```bash
 
  $ docker build -t awesome-marketplace_client:prod \
- --target prod ./client && \
+ --target deploy ./client && \
  docker build -t awesome-marketplace_server:prod \
  --target prod ./server
 
@@ -51,6 +53,7 @@ Luego de utilizarlos para matar los procesos de docker puedes usar:
 ```bash
   docker container kill $(docker ps -q | grep "awesome-marketplace")
 ```
+
 
 - TODO: Faltan las configuraciones para inyectar las variables de entorno y sacarlas del process.env en el cliente y pasarlas al window.env. Por lo que todavía no se pueden comunicar las dos aplicaciones en el modo productivo. Pero se pueden correr en contenedores por separado a modo de pruebas.
 - TODO2: Para el modo productivo también debería habilitar las reglas de CORS y CSP en el cliente y el server...
