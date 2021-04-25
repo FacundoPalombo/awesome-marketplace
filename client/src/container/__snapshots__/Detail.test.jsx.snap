@@ -175,7 +175,16 @@ exports[`GIVEN Detail Component WHEN page is rendered THEN should render the loa
         class="breadcrumbs"
       />
     </div>
-    loading...
+    <span
+      class="css-m2td1u"
+    >
+      <span
+        class="css-132xq7w"
+      />
+      <span
+        class="css-16x3gmc"
+      />
+    </span>
     <div
       class="contentContainer"
     >

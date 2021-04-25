@@ -325,7 +325,16 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should render t
       <nav
         class="breadcrumbs"
       >
-        loading...
+        <span
+          class="css-m2td1u"
+        >
+          <span
+            class="css-132xq7w"
+          />
+          <span
+            class="css-16x3gmc"
+          />
+        </span>
       </nav>
     </div>
     <div

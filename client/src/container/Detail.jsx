@@ -5,6 +5,7 @@ import styles from "./Detail.module";
 import { Breadcrumbs } from "common/Breadcrumbs/Breadcrumbs";
 import { Detail as DetailWrapper } from "components/Detail/Detail";
 import { Helmet } from "react-helmet";
+import Spinner from "react-spinners/BounceLoader";
 
 export function Detail() {
   const { id } = useParams();
@@ -20,7 +21,7 @@ export function Detail() {
           {/* TODO: improve this xD */}
         </nav>
       </div>
-      {loading && "loading..."}
+      {loading && <Spinner size="100" color="#666" />}
       {error && (
         <pre>
           Error {error.code} - {error.message}

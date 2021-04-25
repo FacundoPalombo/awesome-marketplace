@@ -1,10 +1,13 @@
 @import "utils/variables.scss";
 
 .box {
-  width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
+  @include col(10);
+  @include md {
+    @include col(12);
+  }
 }
 
 .input {
