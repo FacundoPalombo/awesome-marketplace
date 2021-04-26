@@ -74,17 +74,17 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should match to
                     srcset="file-mock 1x, file-mock 2x"
                   />
                 </h3>
+                <p
+                  class="location"
+                >
+                  Córdoba
+                </p>
                 <h4
                   class="title"
                 >
                   Xiaomi Redmi 9 (global) Dual Sim 64 Gb Carbon Grey 4 Gb Ram
                 </h4>
               </div>
-              <h4
-                class="location"
-              >
-                Córdoba
-              </h4>
             </div>
           </a>
           <hr
@@ -122,17 +122,17 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should match to
                     srcset="file-mock 1x, file-mock 2x"
                   />
                 </h3>
+                <p
+                  class="location"
+                >
+                  Balvanera
+                </p>
                 <h4
                   class="title"
                 >
                   Xiaomi Redmi Note 8 Dual Sim 64 Gb Neptune Blue 4 Gb Ram
                 </h4>
               </div>
-              <h4
-                class="location"
-              >
-                Balvanera
-              </h4>
             </div>
           </a>
           <hr
@@ -170,17 +170,17 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should match to
                     srcset="file-mock 1x, file-mock 2x"
                   />
                 </h3>
+                <p
+                  class="location"
+                >
+                  Capital Federal
+                </p>
                 <h4
                   class="title"
                 >
                   Xiaomi Redmi Note 9 Dual Sim 128 Gb Verde Bosque 4 Gb Ram
                 </h4>
               </div>
-              <h4
-                class="location"
-              >
-                Capital Federal
-              </h4>
             </div>
           </a>
           <hr
@@ -218,17 +218,17 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should match to
                     srcset="file-mock 1x, file-mock 2x"
                   />
                 </h3>
+                <p
+                  class="location"
+                >
+                  Palpala
+                </p>
                 <h4
                   class="title"
                 >
                   Xiaomi 9a Dual Sim 32 Gb Gris Granito 2 Gb Ram
                 </h4>
               </div>
-              <h4
-                class="location"
-              >
-                Palpala
-              </h4>
             </div>
           </a>
           <hr
@@ -266,17 +266,17 @@ exports[`GIVEN Results Component WHEN results was retrieved THEN should match to
                     srcset="file-mock 1x, file-mock 2x"
                   />
                 </h3>
+                <p
+                  class="location"
+                >
+                  Córdoba
+                </p>
                 <h4
                   class="title"
                 >
                   Xiaomi Note 9 Dual Sim 64 Gb Verde Bosque 3 Gb Ram
                 </h4>
               </div>
-              <h4
-                class="location"
-              >
-                Córdoba
-              </h4>
             </div>
           </a>
         </div>

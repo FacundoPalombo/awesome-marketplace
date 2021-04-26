@@ -29,13 +29,9 @@ exports[`GIVEN Detail Component WHEN page is rendered THEN should match to snaps
           <div
             class="content"
           >
-            <div
-              class="imageContainer"
-            >
-              <img
-                class="thumbnail"
-              />
-            </div>
+            <img
+              class="thumbnail"
+            />
             <h4
               class="descriptionTitle"
             >
@@ -120,13 +116,9 @@ exports[`GIVEN Detail Component WHEN page is rendered THEN should render the err
           <div
             class="content"
           >
-            <div
-              class="imageContainer"
-            >
-              <img
-                class="thumbnail"
-              />
-            </div>
+            <img
+              class="thumbnail"
+            />
             <h4
               class="descriptionTitle"
             >
@@ -198,13 +190,9 @@ exports[`GIVEN Detail Component WHEN page is rendered THEN should render the loa
           <div
             class="content"
           >
-            <div
-              class="imageContainer"
-            >
-              <img
-                class="thumbnail"
-              />
-            </div>
+            <img
+              class="thumbnail"
+            />
             <h4
               class="descriptionTitle"
             >
