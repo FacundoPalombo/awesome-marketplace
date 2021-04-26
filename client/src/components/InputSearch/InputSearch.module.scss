@@ -6,6 +6,7 @@
   justify-content: center;
   @include col(10);
   @include md {
+    padding: 0 $half-unit;
     @include col(12);
   }
 }

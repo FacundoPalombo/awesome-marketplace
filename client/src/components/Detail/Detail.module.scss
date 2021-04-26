@@ -2,36 +2,33 @@
 .container {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 
-  @include xl {
+  @include lg {
     flex-direction: column;
+    @include col(12);
   }
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  width: 65%;
-  align-items: space-around;
-  padding: $unit-4 0 $unit-4 $unit-4;
-  @include xl {
-    width: 80%;
+  align-items: center;
+  padding: $unit-4;
+  @include col(7);
+  @include lg {
+    padding: $unit-4;
+    @include col(12);
   }
-}
-
-.imageContainer {
-  width: 100%;
-  height: auto;
-  box-sizing: content-box;
 }
 
 .thumbnail {
-  width: 100%;
+  box-sizing: content-box;
   max-width: 680px;
   max-height: 680px;
-  @include xl {
-    box-sizing: content-box;
-  }
+  @include col(6);
+  width: 80%;
+  height: auto;
 }
 
 .price {
@@ -45,14 +42,15 @@
 }
 
 .heading {
+  cursor: default;
   display: flex;
   flex-direction: column;
-  padding: $unit-4 $unit-4 $unit-4 $unit-4;
-  width: 30%;
+  padding: $unit-4 $unit-4 $unit-4 0;
+  @include col(3);
   align-items: flex-start;
   justify-content: flex-start;
   @include xl {
-    width: 100%;
+    @include col(5);
     padding: $unit-4;
     box-sizing: border-box;
   }
@@ -68,6 +66,7 @@
 .condition {
   font-size: 14px;
   margin-block: 0 $unit-2;
+  color: fade-out($color: $font, $amount: 0.2);
 }
 
 .cta {
@@ -78,9 +77,11 @@
   border-radius: $half-unit;
   color: #ffffff;
   width: 100%;
-  @include xl {
-    align-self: center;
+  align-self: flex-start;
+  cursor: pointer;
+  @include lg {
     width: 80%;
+    align-self: center;
   }
 }
 
@@ -90,5 +91,10 @@
   &Title {
     font-weight: 500;
     font-size: 28px;
+    align-self: flex-start;
+    text-align: start;
+    @include lg {
+      visibility: hidden;
+    }
   }
 }
