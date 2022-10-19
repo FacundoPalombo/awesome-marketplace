@@ -8,13 +8,9 @@ exports[`GIVEN Detail Component WHEN detail was retrieved AND product is new THE
     <div
       class="content"
     >
-      <div
-        class="imageContainer"
-      >
-        <img
-          class="thumbnail"
-        />
-      </div>
+      <img
+        class="thumbnail"
+      />
       <h4
         class="descriptionTitle"
       >
@@ -56,13 +52,9 @@ exports[`GIVEN Detail Component WHEN detail was retrieved AND product is used TH
     <div
       class="content"
     >
-      <div
-        class="imageContainer"
-      >
-        <img
-          class="thumbnail"
-        />
-      </div>
+      <img
+        class="thumbnail"
+      />
       <h4
         class="descriptionTitle"
       >
@@ -104,13 +96,9 @@ exports[`GIVEN Detail Component WHEN results was NOT retrieved THEN should match
     <div
       class="content"
     >
-      <div
-        class="imageContainer"
-      >
-        <img
-          class="thumbnail"
-        />
-      </div>
+      <img
+        class="thumbnail"
+      />
       <h4
         class="descriptionTitle"
       >

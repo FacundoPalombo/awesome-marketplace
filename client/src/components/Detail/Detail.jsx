@@ -15,9 +15,7 @@ export function Detail({
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.imageContainer}>
-          <img src={thumbnail} className={styles.thumbnail} />
-        </div>
+        <img src={thumbnail} className={styles.thumbnail} />
         <h4 className={styles.descriptionTitle}>Descripción del producto</h4>
         <p className={styles.description}>{description}</p>
       </div>

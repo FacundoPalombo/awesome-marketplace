@@ -22,13 +22,13 @@ exports[`GIVEN Result Component WHEN results was NOT retrieved THEN should match
         <h3
           class="price"
         />
+        <p
+          class="location"
+        />
         <h4
           class="title"
         />
       </div>
-      <h4
-        class="location"
-      />
     </div>
   </a>
 </DocumentFragment>
@@ -64,17 +64,17 @@ exports[`GIVEN Result Component WHEN results was retrieved THEN should match to 
             srcset="file-mock 1x, file-mock 2x"
           />
         </h3>
+        <p
+          class="location"
+        >
+          Rosario
+        </p>
         <h4
           class="title"
         >
           iPod Touch 32 Gb
         </h4>
       </div>
-      <h4
-        class="location"
-      >
-        Rosario
-      </h4>
     </div>
   </a>
 </DocumentFragment>

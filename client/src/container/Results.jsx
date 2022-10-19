@@ -5,6 +5,7 @@ import { Breadcrumbs } from "common/Breadcrumbs/Breadcrumbs";
 import { Result } from "components/Result/Result";
 import styles from "./Results.module";
 import { Helmet } from "react-helmet";
+import Spinner from "react-spinners/BounceLoader";
 
 export function Results() {
   const query = new URLSearchParams(useLocation().search).get("q");
@@ -23,7 +24,7 @@ export function Results() {
               <Breadcrumbs categories={items.categories} />
             )}
             {/* TODO: improve this xD */}
-            {loading && "loading..."}
+            {loading && <Spinner size="100" color="#666" />}
             {error && (
               <pre>
                 Error {error.code} - {error.message}

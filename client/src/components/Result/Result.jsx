@@ -30,9 +30,9 @@ export function Result({
               />
             )}
           </h3>
+          <p className={styles.location}>{sellerLocation}</p>
           <h4 className={styles.title}>{title}</h4>
         </div>
-        <h4 className={styles.location}>{sellerLocation}</h4>
       </div>
     </Link>
   );

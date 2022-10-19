@@ -14,10 +14,10 @@
   }
 }
 .container {
-  width: 80%;
   position: relative;
+  @include col(10);
   @include md {
-    width: 100%;
+    @include col(12);
   }
 }
 
@@ -48,10 +48,6 @@
   @include md {
     width: 100%;
   }
-}
-
-.contentContainer {
-  position: relative;
 }
 
 .resultContainer {

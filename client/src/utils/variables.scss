@@ -40,6 +40,10 @@ $unit-4: $unit * 4;
 }
 
 //mixing
+
+@mixin col($splits) {
+  flex-basis: (100 / (12 / $splits)) * 1%;
+}
 // Small devices
 @mixin sm {
   @media (max-width: 360px) {
