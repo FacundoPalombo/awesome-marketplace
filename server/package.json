@@ -28,7 +28,7 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "moxios": "^0.4.0",
-    "nodemon": "^2.0.22",
+    "nodemon": "^3.1.4",
     "supertest": "^6.1.3"
   },
   "license": "MIT"
