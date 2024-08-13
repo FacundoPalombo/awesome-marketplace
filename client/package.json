@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.13.10",
-    "axios": "^1.7.2",
+    "axios": "^1.7.3",
     "css-minimizer-webpack-plugin": "^2.0.0",
     "formik": "^2.2.6",
     "history": "^4.10.1",
